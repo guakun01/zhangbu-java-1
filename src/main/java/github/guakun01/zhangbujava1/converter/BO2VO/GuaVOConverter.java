@@ -17,6 +17,7 @@ public class GuaVOConverter extends Converter<GuaBO, GuaVO> {
         return GuaVO.builder()
                 .id(guaBO.getId())
                 .displayName(guaBO.getDisplayName())
+                .innerId(guaBO.getInnerId())
                 .build();
     }
 
@@ -27,6 +28,7 @@ public class GuaVOConverter extends Converter<GuaBO, GuaVO> {
         return GuaBO.builder()
                 .id(guaVO.getId())
                 .displayName(guaVO.getDisplayName())
+                .innerId(guaVO.getInnerId())
                 .build();
     }
 
