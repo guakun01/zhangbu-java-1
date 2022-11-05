@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+
 import javax.validation.constraints.NotNull;
 
 @RestController
@@ -36,7 +38,9 @@ public class GuaController {
             throw new InvalidParameterException("Use incorrect guaid = " + guaId);
         }
         GuaBO guaBO = guaManager.getGuaById(guaId);
-        return ResponseEntity.ok(guaVOConverter.convert(guaBO));
+        GuaVO res = guaVOConverter.convert(guaBO);
+        assert res != null;
+        return ResponseEntity.ok(res);
     }
 
 }

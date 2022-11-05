@@ -6,10 +6,12 @@ import com.google.common.base.Converter;
 
 import github.guakun01.zhangbujava1.model.common.GuaBO;
 import github.guakun01.zhangbujava1.model.persistence.GuaDO;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Component
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class GuaBoConverter extends Converter<GuaDO, GuaBO>{
 
     @Override
