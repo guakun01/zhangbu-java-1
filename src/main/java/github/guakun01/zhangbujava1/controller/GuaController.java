@@ -1,13 +1,18 @@
 package github.guakun01.zhangbujava1.controller;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import github.guakun01.zhangbujava1.converter.BO2VO.GuaVOConverter;
+import github.guakun01.zhangbujava1.exception.InvalidParameterException;
 import github.guakun01.zhangbujava1.manager.GuaManager;
+import github.guakun01.zhangbujava1.model.common.GuaBO;
 import github.guakun01.zhangbujava1.model.service.GuaVO;
 
 @RestController
@@ -27,8 +32,12 @@ public class GuaController {
     }
 
     @GetMapping("/{id}")
-    public GuaVO getGuaById(@PathVariable("id") Long guaId) {
-        return guaVOConverter.convert(guaManager.getGuaById(guaId));
+    public ResponseEntity<GuaVO> getGuaById(@PathVariable("id") Long guaId) {
+        if (Objects.isNull(guaId) || guaId <= 0) {
+            throw new InvalidParameterException("Use incorrect guaid = " + guaId);
+        }
+        GuaBO guaBO = guaManager.getGuaById(guaId);
+        return ResponseEntity.ok(guaVOConverter.convert(guaBO));
     }
 
 }
