@@ -1,7 +1,10 @@
 package github.guakun01.zhangbujava1.controller;
 
-import java.util.Objects;
-
+import github.guakun01.zhangbujava1.converter.BO2VO.GuaVoConverter;
+import github.guakun01.zhangbujava1.exception.InvalidParameterException;
+import github.guakun01.zhangbujava1.manager.GuaManager;
+import github.guakun01.zhangbujava1.model.common.GuaBO;
+import github.guakun01.zhangbujava1.model.service.GuaVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import github.guakun01.zhangbujava1.converter.BO2VO.GuaVOConverter;
-import github.guakun01.zhangbujava1.exception.InvalidParameterException;
-import github.guakun01.zhangbujava1.manager.GuaManager;
-import github.guakun01.zhangbujava1.model.common.GuaBO;
-import github.guakun01.zhangbujava1.model.service.GuaVO;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/v1/gua")
@@ -21,12 +20,12 @@ public class GuaController {
 
     private final GuaManager guaManager;
 
-    private final GuaVOConverter guaVOConverter;
+    private final GuaVoConverter guaVOConverter;
 
     @Autowired
     public GuaController(
             final GuaManager guaManager,
-            final GuaVOConverter guaVOConverter) {
+            final GuaVoConverter guaVOConverter) {
         this.guaManager = guaManager;
         this.guaVOConverter = guaVOConverter;
     }

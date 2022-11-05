@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import github.guakun01.zhangbujava1.converter.DO2BO.GuaBOConverter;
+import github.guakun01.zhangbujava1.converter.DO2BO.GuaBoConverter;
 import github.guakun01.zhangbujava1.dao.GuaDAO;
 import github.guakun01.zhangbujava1.exception.ResourceNotFoundException;
 import github.guakun01.zhangbujava1.model.common.GuaBO;
@@ -30,7 +30,7 @@ public class GuaManagerTest {
   @BeforeEach
   public void setup() {
     MockitoAnnotations.initMocks(this);
-    guaManager = new GuaManagerImpl(guaDAO, new GuaBOConverter());
+    guaManager = new GuaManagerImpl(guaDAO, new GuaBoConverter());
   }
 
   @Test

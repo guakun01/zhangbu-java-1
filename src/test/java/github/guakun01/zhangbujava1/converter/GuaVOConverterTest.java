@@ -6,13 +6,13 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import github.guakun01.zhangbujava1.converter.BO2VO.GuaVOConverter;
-import github.guakun01.zhangbujava1.converter.DO2BO.GuaBOConverter;
+import github.guakun01.zhangbujava1.converter.BO2VO.GuaVoConverter;
+import github.guakun01.zhangbujava1.converter.DO2BO.GuaBoConverter;
 import github.guakun01.zhangbujava1.model.common.GuaBO;
 import github.guakun01.zhangbujava1.model.service.GuaVO;
 
 class GuaVOConverterTest {
-  private GuaVOConverter guaVOConverter = new GuaVOConverter();
+  private GuaVoConverter guaVOConverter = new GuaVoConverter();
 
   @Test
   void testDoForward() {

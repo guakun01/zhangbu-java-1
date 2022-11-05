@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import github.guakun01.zhangbujava1.converter.BO2VO.GuaVOConverter;
+import github.guakun01.zhangbujava1.converter.BO2VO.GuaVoConverter;
 import github.guakun01.zhangbujava1.exception.GlobalExceptionHandler;
 import github.guakun01.zhangbujava1.exception.ResourceNotFoundException;
 import github.guakun01.zhangbujava1.manager.GuaManager;
@@ -37,7 +37,7 @@ public class GuaControllerTest {
   @BeforeEach
   void setup() {
     mockMvc = MockMvcBuilders.standaloneSetup(
-        new GuaController(guaManager, new GuaVOConverter())).setControllerAdvice(new GlobalExceptionHandler())
+        new GuaController(guaManager, new GuaVoConverter())).setControllerAdvice(new GlobalExceptionHandler())
         .build();
   }
 

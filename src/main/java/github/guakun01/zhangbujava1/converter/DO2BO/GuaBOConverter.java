@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Component
 @NoArgsConstructor
-public class GuaBOConverter extends Converter<GuaDO, GuaBO>{
+public class GuaBoConverter extends Converter<GuaDO, GuaBO>{
 
     @Override
     protected GuaBO doForward(GuaDO guaDO) {

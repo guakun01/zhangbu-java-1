@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import github.guakun01.zhangbujava1.converter.DO2BO.GuaBOConverter;
+import github.guakun01.zhangbujava1.converter.DO2BO.GuaBoConverter;
 import github.guakun01.zhangbujava1.dao.GuaDAO;
 import github.guakun01.zhangbujava1.exception.ResourceNotFoundException;
 import github.guakun01.zhangbujava1.model.common.GuaBO;
@@ -18,12 +18,12 @@ public class GuaManagerImpl implements GuaManager {
 
     private final GuaDAO guaDAO;
 
-    private final GuaBOConverter guaBOConverter;
+    private final GuaBoConverter guaBOConverter;
 
     @Autowired
     public GuaManagerImpl(
             final GuaDAO guaDAO,
-            final GuaBOConverter guaBOConverter) {
+            final GuaBoConverter guaBOConverter) {
         this.guaDAO = guaDAO;
         this.guaBOConverter = guaBOConverter;
     }

@@ -5,12 +5,12 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import github.guakun01.zhangbujava1.converter.DO2BO.GuaBOConverter;
+import github.guakun01.zhangbujava1.converter.DO2BO.GuaBoConverter;
 import github.guakun01.zhangbujava1.model.common.GuaBO;
 import github.guakun01.zhangbujava1.model.persistence.GuaDO;
 
 class GuaBOConverterTest {
-  private GuaBOConverter guaBOConverter = new GuaBOConverter();
+  private GuaBoConverter guaBOConverter = new GuaBoConverter();
 
   @Test
   void testDoForward() {
