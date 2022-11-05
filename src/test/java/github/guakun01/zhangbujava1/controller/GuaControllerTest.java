@@ -3,6 +3,7 @@ package github.guakun01.zhangbujava1.controller;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -86,5 +87,7 @@ public class GuaControllerTest {
         .andExpect(content().contentType("application/json"))
         .andExpect(content().string(
             "{\"bizErrorCode\":\"INVALID_PARAMETER\",\"errorType\":\"CLINET\",\"message\":\"Use incorrect guaid = -1\",\"statusCode\":400}"));
+    verify(guaManager, never()).getGuaById(anyLong());
   }
+ 
 }

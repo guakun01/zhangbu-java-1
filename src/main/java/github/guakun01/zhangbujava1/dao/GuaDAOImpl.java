@@ -21,34 +21,34 @@ public class GuaDAOImpl implements GuaDAO {
         return gua;
     }
 
-    @Override
-    public List<GuaDO> listGuas() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // @Override
+    // public List<GuaDO> listGuas() {
+    //     // TODO Auto-generated method stub
+    //     return null;
+    // }
 
-    @Override
-    public int countGua() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+    // @Override
+    // public int countGua() {
+    //     // TODO Auto-generated method stub
+    //     return 0;
+    // }
 
-    @Override
-    public int insertGua() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+    // @Override
+    // public int insertGua() {
+    //     // TODO Auto-generated method stub
+    //     return 0;
+    // }
 
-    @Override
-    public int removeGua() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+    // @Override
+    // public int removeGua() {
+    //     // TODO Auto-generated method stub
+    //     return 0;
+    // }
 
-    @Override
-    public int updateGua() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
+    // @Override
+    // public int updateGua() {
+    //     // TODO Auto-generated method stub
+    //     return 0;
+    // }
 
 }

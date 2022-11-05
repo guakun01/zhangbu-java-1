@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Objects;
+import javax.validation.constraints.NotNull;
 
 @RestController
 @RequestMapping("/api/v1/gua")
@@ -31,8 +31,8 @@ public class GuaController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GuaVO> getGuaById(@PathVariable("id") Long guaId) {
-        if (Objects.isNull(guaId) || guaId <= 0) {
+    public ResponseEntity<GuaVO> getGuaById(@PathVariable("id") @NotNull Long guaId) {
+        if (guaId <= 0) {
             throw new InvalidParameterException("Use incorrect guaid = " + guaId);
         }
         GuaBO guaBO = guaManager.getGuaById(guaId);
