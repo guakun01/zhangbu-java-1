@@ -21,6 +21,12 @@ public class GuaDAOImpl implements GuaDAO {
         return gua;
     }
 
+    @Override
+    public GuaDO getGuaByName(String gname) {
+        GuaDO gua = guaMapper.getGuaByName(gname);
+        return gua;
+    }
+
     // @Override
     // public List<GuaDO> listGuas() {
     //     // TODO Auto-generated method stub

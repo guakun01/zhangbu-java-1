@@ -1,5 +1,6 @@
 package github.guakun01.zhangbujava1.manager;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,13 @@ public class GuaManagerImpl implements GuaManager {
         GuaDO gua = Optional.ofNullable(guaDAO.getGuaById(id))
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("No this gua.(id = %d)", id)));
         return guaBOConverter.convert(gua);
+    }
+
+    @Override
+    public GuaBO getGuaByName(String gname) {
+        return Optional.ofNullable(guaDAO.getGuaByName(gname))
+                .map(guaBOConverter::convert)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("No this gua.(name = %s)", gname)));
     }
 
 }

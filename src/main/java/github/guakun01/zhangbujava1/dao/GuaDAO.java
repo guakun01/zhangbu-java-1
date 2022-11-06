@@ -6,6 +6,9 @@ public interface GuaDAO {
     // 获取单个对象的方法使用 get 做前缀
     GuaDO getGuaById(Long id);
 
+    // 获取单个对象的方法使用 get 做前缀
+    GuaDO getGuaByName(String gname);
+
     // // 获取多个对象的方法用 list 做前缀，复数结尾
     // List<GuaDO> listGuas();
 

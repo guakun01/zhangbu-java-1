@@ -11,4 +11,7 @@ public interface GuaMapper {
     
     @Select("SELECT id, display_name, inner_id, create_at, modified_at from hi_gua where id = #{id};")
     GuaDO getGuaById(@Param("id")long id);
+
+    @Select("SELECT id, display_name, inner_id, create_at, modified_at from hi_gua where display_name = #{gname};")
+    GuaDO getGuaByName(@Param("gname")String gname);
 }
