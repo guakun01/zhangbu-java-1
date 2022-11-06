@@ -8,13 +8,13 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-
 import github.guakun01.zhangbujava1.manager.GuaManager;
 import github.guakun01.zhangbujava1.model.common.GuaBO;
 
@@ -25,8 +25,10 @@ public class UserRealm extends AuthorizingRealm {
 
     @Autowired
     public UserRealm(
-        GuaManager guaManager
+        GuaManager guaManager,
+        HashedCredentialsMatcher matcher
     ) {
+        super(matcher);
         this.guaManager = guaManager;
     }
 
@@ -37,17 +39,19 @@ public class UserRealm extends AuthorizingRealm {
         String gid = new String((char[]) token.getCredentials()) ;
         // 判空
         GuaBO guaBO = guaManager.getGuaByName(gname);
-        if (Objects.isNull(guaBO)) {
-            throw new UnknownAccountException(String.format("The gname(%s) is a void.", gname));
-        }
+        String salt = guaBO.getSalt();
 
-        // check pw
-        String pwInDb = guaBO.getInnerId();
-        if (!gid.equals(pwInDb)) {
-            throw new IncorrectCredentialsException(String.format("Use wrong id gname(%s) .", gname));
-        }
+        // if (Objects.isNull(guaBO)) {
+        //     throw new UnknownAccountException(String.format("The gname(%s) is a void.", gname));
+        // }
 
-        return new SimpleAuthenticationInfo(gname, gid, this.getName());
+        // // check pw
+        // String pwInDb = guaBO.getInnerId();
+        // if (!gid.equals(pwInDb)) {
+        //     throw new IncorrectCredentialsException(String.format("Use wrong id for gname(%s) .", gname));
+        // }
+
+        return new SimpleAuthenticationInfo(guaBO.getDisplayName(), guaBO.getInnerId(), ByteSource.Util.bytes(salt), this.getName());
     }
 
 

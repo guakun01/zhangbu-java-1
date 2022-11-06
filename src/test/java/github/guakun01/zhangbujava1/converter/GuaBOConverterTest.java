@@ -2,6 +2,7 @@ package github.guakun01.zhangbujava1.converter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,11 +21,13 @@ class GuaBOConverterTest {
     String displayName = "xg";
     String innerId = "xxg";
     LocalDate createAt = LocalDate.now();
+    String salt = UUID.randomUUID().toString();
 
     GuaDO guaDO = GuaDO.builder()
         .id(id)
         .displayName(displayName)
         .innerId(innerId)
+        .salt(salt)
         .createAt(createAt)
         .build();
     // act
@@ -32,7 +35,8 @@ class GuaBOConverterTest {
     assertThat(res).isNotNull()
         .hasFieldOrPropertyWithValue("id", id)
         .hasFieldOrPropertyWithValue("displayName", displayName)
-        .hasFieldOrPropertyWithValue("innerId", innerId);
+        .hasFieldOrPropertyWithValue("innerId", innerId)
+        .hasFieldOrPropertyWithValue("salt", salt);
 
   }
 
@@ -43,11 +47,13 @@ class GuaBOConverterTest {
     // arrange
     String displayName = "xg";
     String innerId = "xxg";
+    String salt = UUID.randomUUID().toString();
 
     GuaBO guaBO = GuaBO.builder()
         .id(id)
         .displayName(displayName)
         .innerId(innerId)
+        .salt(salt)
         .build();
     // act
     GuaDO res = guaBOConverter.reverse().convert(guaBO);
@@ -56,6 +62,7 @@ class GuaBOConverterTest {
         .hasFieldOrPropertyWithValue("displayName", displayName)
         .hasFieldOrPropertyWithValue("createAt", null)
         .hasFieldOrPropertyWithValue("modifiedAt", null)
+        .hasFieldOrPropertyWithValue("salt", salt)
         .hasFieldOrPropertyWithValue("innerId", innerId);
 
   }

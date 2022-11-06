@@ -20,6 +20,7 @@ public class GuaBoConverter extends Converter<GuaDO, GuaBO>{
         .id(guaDO.getId())
         .displayName(guaDO.getDisplayName())
         .innerId(guaDO.getInnerId())
+        .salt(guaDO.getSalt())
         .build();
     }
 
@@ -29,6 +30,7 @@ public class GuaBoConverter extends Converter<GuaDO, GuaBO>{
         .id(guaBO.getId())
         .displayName(guaBO.getDisplayName())
         .innerId(guaBO.getInnerId())
+        .salt(guaBO.getSalt())
         .build();
     }
     

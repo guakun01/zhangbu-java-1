@@ -14,11 +14,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import github.guakun01.zhangbujava1.converter.BO2VO.GuaVoConverter;
@@ -67,7 +65,7 @@ public class GuaControllerTest {
     mockMvc.perform(get("/api/v1/gua/" + id))
         .andExpect(status().isOk())
         .andExpect(content().contentType("application/json"))
-        .andExpect(content().string("{\"id\":1,\"displayName\":\"xg\",\"innerId\":\"xxg\"}"));
+        .andExpect(content().string("{\"id\":1,\"displayName\":\"xg\"}"));
 
     verify(guaManager).getGuaById(anyLong());
   }

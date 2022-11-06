@@ -1,7 +1,5 @@
 package github.guakun01.zhangbujava1.dao;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +25,11 @@ public class GuaDAOImpl implements GuaDAO {
         return gua;
     }
 
+    @Override
+    public int insertGua(GuaDO newGua) {
+        return guaMapper.insertGua(newGua);
+    }
+
     // @Override
     // public List<GuaDO> listGuas() {
     //     // TODO Auto-generated method stub
@@ -35,12 +38,6 @@ public class GuaDAOImpl implements GuaDAO {
 
     // @Override
     // public int countGua() {
-    //     // TODO Auto-generated method stub
-    //     return 0;
-    // }
-
-    // @Override
-    // public int insertGua() {
     //     // TODO Auto-generated method stub
     //     return 0;
     // }

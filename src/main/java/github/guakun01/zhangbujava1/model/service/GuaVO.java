@@ -11,5 +11,4 @@ import lombok.NoArgsConstructor;
 public class GuaVO {
     private Long id;
     private String displayName;
-    private String innerId;
 }

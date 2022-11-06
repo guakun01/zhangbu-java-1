@@ -7,4 +7,6 @@ public interface GuaManager {
     GuaBO getGuaById(Long id);
 
     GuaBO getGuaByName(String gname);
+
+    GuaBO signup(String gname, String gid);
 }

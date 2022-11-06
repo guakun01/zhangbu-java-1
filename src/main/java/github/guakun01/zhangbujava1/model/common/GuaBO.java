@@ -13,4 +13,5 @@ public class GuaBO {
     private Long id;
     private String displayName;
     private String innerId;
+    private String salt;
 }
