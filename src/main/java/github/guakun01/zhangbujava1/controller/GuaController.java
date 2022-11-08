@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,10 +44,9 @@ public class GuaController {
         return ResponseEntity.ok(res);
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<GuaVO> signup(@RequestParam("gname") String gname,
-            @RequestParam("gid") String gid) {
-        return ResponseEntity.ok(guaVOConverter.convert(guaManager.signup(gname, gid)));
+    @PostMapping(value="/signup", produces="application/json", consumes = "application/json")
+    public ResponseEntity<GuaVO> signup(@RequestBody GuaVO guaVO) {
+        return ResponseEntity.ok(guaVOConverter.convert(guaManager.signup(guaVO.getDisplayName(), guaVO.getInnerId())));
     }
 
 }

@@ -10,7 +10,7 @@ public interface GuaDAO {
     GuaDO getGuaByName(String gname);
 
     // 插入的方法使用 save/insert 做前缀
-    int insertGua(GuaDO newGua);
+    void insertGua(GuaDO newGua);
     // void signup(GuaDO guaDO);
 
     // // 根据 gname 锁定一个gua

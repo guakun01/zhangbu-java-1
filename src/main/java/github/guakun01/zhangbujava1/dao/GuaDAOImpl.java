@@ -6,12 +6,16 @@ import org.springframework.stereotype.Repository;
 import github.guakun01.zhangbujava1.dao.mapper.GuaMapper;
 import github.guakun01.zhangbujava1.model.persistence.GuaDO;
 import lombok.RequiredArgsConstructor;
+import lombok.var;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Repository
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class GuaDAOImpl implements GuaDAO {
 
     private final GuaMapper guaMapper;
+    private int insertGua;
 
     @Override
     public GuaDO getGuaById(Long id) {
@@ -26,8 +30,9 @@ public class GuaDAOImpl implements GuaDAO {
     }
 
     @Override
-    public int insertGua(GuaDO newGua) {
-        return guaMapper.insertGua(newGua);
+    public void insertGua(GuaDO newGua) {
+        var row = guaMapper.insertGua(newGua);
+        log.debug("Result: {}, use information: {}", row, newGua);
     }
 
     // @Override
