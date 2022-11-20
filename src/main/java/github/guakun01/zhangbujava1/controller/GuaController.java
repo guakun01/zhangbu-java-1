@@ -33,7 +33,7 @@ public class GuaController {
         this.guaVOConverter = guaVOConverter;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value ="/{id}", produces="application/json", consumes = "application/json")
     public ResponseEntity<GuaVO> getGuaById(@PathVariable("id") @NotNull Long guaId) {
         if (guaId <= 0) {
             throw new InvalidParameterException("Use incorrect guaid = " + guaId);

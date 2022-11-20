@@ -62,7 +62,7 @@ public class GuaControllerTest {
     doReturn(guaBO).when(guaManager).getGuaById(anyLong());
 
     // Act && Assert
-    mockMvc.perform(get("/api/v1/gua/" + id))
+    mockMvc.perform(get("/api/v1/gua/" + id).contentType("application/json"))
         .andExpect(status().isOk())
         .andExpect(content().contentType("application/json"))
         .andExpect(content().string("{\"id\":1,\"displayName\":\"xg\"}"));
@@ -80,7 +80,7 @@ public class GuaControllerTest {
         .getGuaById(anyLong());
 
     // Act && Assert
-    mockMvc.perform(get("/api/v1/gua/" + id))
+    mockMvc.perform(get("/api/v1/gua/" + id).contentType("application/json"))
         .andExpect(status().is4xxClientError())
         .andExpect(content().contentType("application/json"))
         .andExpect(content().string(
